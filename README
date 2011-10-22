@@ -1,0 +1,44 @@
+README 
+-------------
+
+The design has been carried out using Factory method pattern.
+1)
+just by changing the position in createplayer call in Main method names for different positions can be obtained having highest jersey number.
+
+Signature
+-----
+Player createPLayer(String position);
+
+2) printname : prints name of the player
+Signature
+------------
+void printname(DBCollection players, String teamName, String Highest,String Lowest)
+
+teamname : name of the team 
+Highest and Lowest are the flags for finding players with highest or lowest jersey numbers.
+
+
+------------------------------------------------------------------------------------------------------------
+
+
+OPTIMIZATIONS
+
+The mongodb record structure should store jersey number as separate attribute and not a part of Name attribute.
+e.g
+
+{
+    "_id": {
+        "$oid": "4e9f1d2ae4b0ea13e65510f4"
+    },
+    "name": "mark sanchez,
+	"jersey_no":"6",
+    "team": "jets",
+    "position": "qb"
+}
+
+This will reduce string operations.
+
+We can directly get value by 
+
+Players.findone(query).sort("jersey_no",1);
+
