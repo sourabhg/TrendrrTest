@@ -91,7 +91,7 @@ public class Main {
 			e.printStackTrace();
 		}
 		DB trendrr = m.getDB("trendrr");
-		trendrr.authenticate("trendrrCandidate", "mongomongo".toCharArray());
+		trendrr.authenticate("", "".toCharArray());
 		DBCollection players = trendrr.getCollection("players");
 		
 		
